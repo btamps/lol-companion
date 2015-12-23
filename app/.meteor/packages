@@ -24,3 +24,7 @@ bootstrap
 accounts-password
 accounts-ui
 http
+meteorhacks:npm
+
+
+npm-container
