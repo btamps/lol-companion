@@ -6,4 +6,4 @@
 # export MONGO_URL="mongodb://localhost:27017/myapp-development"
 # export ROOT_URL="http://localhost:3000"
 
-export SAMPLE_VARIABLE="somevalue"
+export RIOT_TOKEN="e29194e0-9998-440f-bf4f-ae7dca4fadb5"

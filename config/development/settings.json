@@ -2,5 +2,9 @@
   "public": {
   },
 
+  "private": {
+    "riotToken": "e29194e0-9998-440f-bf4f-ae7dca4fadb5"
+  },
+
   "sample": "value"
 }
