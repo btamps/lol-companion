@@ -15,16 +15,22 @@ Template.Home.helpers({
   // allChamps list
   // should be working: https://github.com/meteor/meteor/blob/devel/packages/spacebars/README.md#each
   allChamps: function () {
+    // turn object into array for template to consume
+    var result =  [];
     Meteor.call('getChamps', function (err, results) {
-      // turn object into array for template to consume
-      var result = [];
+
       for (var key in results.data.data) {
         result.push( { name: key, data: results.data.data[key] } );
       }
-      // console shows proper array of objects with data
-      console.log(result);
-      return result;
+          // console shows proper array of objects with data
+          console.log(result);
     });
+
+    // console shows outside of Meteor call
+    console.log(result);
+
+    var test = [{name: 'monday', data: 'day'},{name: 'tuesday', data: 'day'},{name: 'wednesday', data: 'day'}]
+    return test;
   },
 
   selectedChamp: function () {
