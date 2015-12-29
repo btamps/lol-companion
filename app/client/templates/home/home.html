@@ -2,6 +2,12 @@
   <div class="home">
     {{#if currentUser}}
       <h1>Select Champion</h1>
+      <select class="allChamps">
+      {{#each champ in allChamps}}
+        <option>{{champ.name}}</option>
+      {{/each}}
+      </select>
+
       <select class="champs">
         <option value="Ezreal">Ezreal</option>
         <option value="FiddleSticks">FiddleSticks</option>
