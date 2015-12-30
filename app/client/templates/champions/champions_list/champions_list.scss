@@ -1,0 +1,53 @@
+/*****************************************************************************/
+/* ChampionsList: Style */
+/*****************************************************************************/
+ul.champions-list {
+  list-style: none;
+  margin: 0;
+  li {
+    display: block;
+    overflow: hidden;
+    border-top: 1px solid #ccc;
+    padding: 20px 20px 20px 0;
+    .image-box {
+      float: left;
+      display: block;
+    }
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 5px;
+      border: 3px solid #3692B9;
+      margin: 0 20px 5px 0;
+      display: block;
+    }
+    .text-wrap {
+      font-family: 'Source Sans Pro', sans-serif;
+      overflow: hidden;
+    }
+    .name {
+      font-weight: 700;
+      color: #3692B9;
+      font-size: 18px;
+      margin-right: 2px;
+    }
+    .title {
+      color: #984B56;
+      display: block;
+      font-size: 14px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .blurb {
+      margin-top: 10px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .tags {
+      color: #3692B9;
+      font-size: 13px;
+      font-weight: 400;
+    }
+  }
+}

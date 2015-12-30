@@ -1,22 +1,5 @@
 <template name="Home">
   <div class="home">
-    {{#if currentUser}}
-      <h1>Select Champion</h1>
-      <select class="allChamps">
-      {{#each champion in allChamps}}
-        <option>{{champion.name}}</option>
-      {{/each}}
-    </select>
-
-      <select class="champs">
-        <option value="Ezreal">Ezreal</option>
-        <option value="FiddleSticks">FiddleSticks</option>
-        <option value="Fizz">Fizz</option>
-        <option value="Gangplank">Gangplank</option>
-      </select>
-      <div class="champion-header">
-        <h3>{{selectedChamp}}</h3>
-      </div>
-    {{/if}}
+    {{> ChampionsList}}
   </div>
 </template>
