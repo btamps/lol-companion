@@ -5,17 +5,14 @@
   		  	{{> loginButtons}}
   	  	</div>
   	</div>
-    	<div class="row">
-    		<ul class="breadcrumb">
-    			<li>
-    				<a href="/">Home</a>
-    				<span class="divider">/</span>
-    			</li>
-    			<li>{{> yield "breadcrumb"}}</li>
-    		</ul>
-    	</div>
-  	  <div class="row">
-  		  {{> yield}}
-  	  </div>
-    </div>
+  	<div class="row">
+      <ul class="nav nav-pills">
+        <li role="presentation">{{#linkTo route='home'}}Home{{/linkTo}}</li>
+        <li role="presentation">{{#linkTo route='champions'}}Champions{{/linkTo}}</li>
+      </ul>
+  	</div>
+	  <div class="row">
+		  {{> yield}}
+	  </div>
+  </div>
 </template>

@@ -10,3 +10,9 @@ Router.route('/', {
   controller: 'HomeController',
   where: 'client'
 });
+
+Router.route('champions', {
+  name: 'champions',
+  controller: 'ChampionsController',
+  where: 'client'
+});
