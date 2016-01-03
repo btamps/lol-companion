@@ -1,0 +1,23 @@
+{
+  "name": "lol-companion",
+  "version": "1.0.0",
+  "description": "A Meteor app using Riot's API.",
+  "main": "index.js",
+  "dependencies": {
+    "leagueapi": "^0.4.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/btamps/lol-companion.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/btamps/lol-companion/issues"
+  },
+  "homepage": "https://github.com/btamps/lol-companion#readme"
+}

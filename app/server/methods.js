@@ -82,7 +82,7 @@ Meteor.methods({
 
         // I'm trying to get a champs imageUrl from using the id
         var imageUrl = function () {
-          Champions.find({ id: entry.championId}, {fields: {'imageUrl': 1}})
+          return "http://ddragon.leagueoflegends.com/cdn/5.24.2/img/profileicon/780.png";
         }
         // But it doesn't work
         game.championImageUrl = imageUrl;
