@@ -7,6 +7,8 @@ HomeController = RouteController.extend({
 
   subscriptions: function() {
     this.subscribe("summoners");
+    this.subscribe("games");
+    this.subscribe("champions");
   },
 
   // Subscriptions or other things we want to "wait" on. This also

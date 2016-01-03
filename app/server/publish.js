@@ -8,3 +8,7 @@ Meteor.publish('champions', function () {
 Meteor.publish('summoners', function () {
   return Summoners.find();
 });
+
+Meteor.publish('games', function () {
+  return Games.find();
+});

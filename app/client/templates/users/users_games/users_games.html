@@ -1,0 +1,14 @@
+<template name="UsersGames">
+  <div class="users-games">
+    <h1>Recent Games</h1>
+    {{#each games}}
+      <div class="game">
+        <img src="{{championImageUrl}}" alt="{{championName}}">
+        <p>Champ Id: {{championId}}</p>
+        <p>Game Mode: {{mode}}</p>
+        <p>Last Played: {{date}}</p>
+        <p>Outcome: {{#if isWin}}Win{{else}}Lose{{/if}}</p>
+      </div>
+    {{/each}}
+  </div>
+</template>

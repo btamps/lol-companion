@@ -64,5 +64,42 @@ Meteor.methods({
         Summoners.upsert(summoner._id, summoner);
       }, this);
     });
+  },
+  getRecentGames: function() {
+    // Get champions from Riot server
+    HTTP.get('https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner/50899122/recent?api_key=e29194e0-9998-440f-bf4f-ae7dca4fadb5', function(error, riotResponse) {
+      var games = [];
+      var entries = riotResponse.data.games;
+      _.each(entries, function(entry) {
+        var game = {};
+        game.mode = entry.gameMode;
+        game.championId = entry.championId;
+        game.date = moment(entry.createDate).fromNow();
+        game.kills = entry.stats.championsKilled;
+        game.deaths = entry.stats.numDeaths;
+        game.assists = entry.stats.assists;
+        game.isWin = entry.stats.win;
+
+        // I'm trying to get a champs imageUrl from using the id
+        var imageUrl = function () {
+          Champions.find({ id: entry.championId}, {fields: {'imageUrl': 1}})
+        }
+        // But it doesn't work
+        game.championImageUrl = imageUrl;
+
+        // Add champ to list
+        games.push(game);
+      }, this);
+
+      // Delete all existing champions from database
+      Games.find().forEach(function(game) {
+        Games.remove(game._id);
+      });
+
+      // Insert new champions from array into database
+      _.each(games, function(game) {
+        Games.upsert(game._id, game);
+      }, this);
+    });
   }
 });
