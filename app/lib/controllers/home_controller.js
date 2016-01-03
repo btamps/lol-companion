@@ -6,7 +6,7 @@ HomeController = RouteController.extend({
   // this.subscribe('item', this.params._id).wait();
 
   subscriptions: function() {
-    this.subscribe("champions");
+    this.subscribe("summoners");
   },
 
   // Subscriptions or other things we want to "wait" on. This also
@@ -16,7 +16,7 @@ HomeController = RouteController.extend({
 
   waitOn: function () {
   },
-  
+
   // A data function that can be used to automatically set the data context for
   // our layout. This function can also be used by hooks and plugins. For
   // example, the "dataNotFound" plugin calls this function to see if it

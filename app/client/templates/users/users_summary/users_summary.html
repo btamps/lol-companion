@@ -1,0 +1,13 @@
+<template name="UsersSummary">
+  <div class="users-summary">
+    <h1>Summoner Profile</h1>
+    {{#each summonerSummary}}
+      <p>Name: {{name}}</p>
+      <p>User Id: {{userId}}</p>
+      <p>Summoner Id: {{id}}</p>
+      <p><img src="{{profileIconUrl}}" alt=""></p>
+      <p>Summoner Level: {{level}}</p>
+      <p>Last Played: {{revisionDate}}</p>
+    {{/each}}
+  </div>
+</template>
