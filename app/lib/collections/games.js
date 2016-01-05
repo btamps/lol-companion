@@ -1,6 +1,7 @@
 Games = new Mongo.Collection('games');
 
 
+
 if (Meteor.isServer) {
   Games.allow({
     insert: function (userId, doc) {

@@ -1,6 +1,7 @@
 Champions = new Mongo.Collection('champions');
 
 
+
 if (Meteor.isServer) {
   Champions.allow({
     insert: function (userId, doc) {
