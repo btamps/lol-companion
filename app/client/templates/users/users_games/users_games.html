@@ -3,7 +3,9 @@
     <h1>Recent Games</h1>
     {{#each games}}
       <div class="game">
-        <img src="{{championImageUrl}}" alt="{{championName}}">
+        <img src="{{imageUrl}}" alt="{{name}}">
+        <p>Champ Played: {{name}}</p>
+        <p>Array count: {{champCount}}</p>
         <p>Champ Id: {{championId}}</p>
         <p>Game Mode: {{mode}}</p>
         <p>Last Played: {{date}}</p>

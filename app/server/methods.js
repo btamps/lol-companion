@@ -66,10 +66,12 @@ Meteor.methods({
     });
   },
   getRecentGames: function() {
+    var champIds = [];
     // Get champions from Riot server
     HTTP.get('https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner/50899122/recent?api_key=e29194e0-9998-440f-bf4f-ae7dca4fadb5', function(error, riotResponse) {
       var games = [];
       var entries = riotResponse.data.games;
+      var champCount = 0;
       _.each(entries, function(entry) {
         var game = {};
         game.mode = entry.gameMode;
@@ -80,16 +82,20 @@ Meteor.methods({
         game.assists = entry.stats.assists;
         game.isWin = entry.stats.win;
 
-        // I'm trying to get a champs imageUrl from using the id
-        var imageUrl = function () {
-          return "http://ddragon.leagueoflegends.com/cdn/5.24.2/img/profileicon/780.png";
-        }
-        // But it doesn't work
-        game.championImageUrl = imageUrl;
-
-        // Add champ to list
+        // Add game to list
         games.push(game);
+
+        // make champ obj, but repeated champs don't show up
+        champIds.push({
+          id: entry.championId,
+          name: "Billy",
+          champCount: champCount,
+          imageUrl: "http://ddragon.leagueoflegends.com/cdn/5.24.2/img/champion/Ahri.png"
+        });
+        champCount++;
       }, this);
+
+      console.log(champIds);
 
       // Delete all existing champions from database
       Games.find().forEach(function(game) {
@@ -99,6 +105,17 @@ Meteor.methods({
       // Insert new champions from array into database
       _.each(games, function(game) {
         Games.upsert(game._id, game);
+      }, this);
+
+      // Insert new champion ids from array into database
+      _.each(champIds, function(champ) {
+        Games.update({ 'championId': champ.id }, {
+    			$set: {
+    				name: champ.name,
+            champCount: champ.champCount,
+    				imageUrl: champ.imageUrl
+    			}
+    		});
       }, this);
     });
   }
