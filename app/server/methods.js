@@ -65,9 +65,9 @@ Meteor.methods({
       }, this);
     });
   },
+
   getRecentGames: function() {
-    var recentChamps = [];
-    // Get champions from Riot server
+    // Get recent champions from Riot server
     HTTP.get('https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner/50899122/recent?api_key=e29194e0-9998-440f-bf4f-ae7dca4fadb5', function(error, riotResponse) {
       var games = [];
       var entries = riotResponse.data.games;
@@ -84,22 +84,7 @@ Meteor.methods({
         // Add game to list
         games.push(game);
 
-        // Add champ id to array
-        var champId = entry.championId;
-        recentChamps.push(champId.toString());
-
-
-
-        // make champ obj, but repeated champs don't show up
-        // recentChamps.push({
-        //   id: entry.championId,
-        //   name: "Billy",
-        //   champCount: champCount,
-        //   imageUrl: "http://ddragon.leagueoflegends.com/cdn/5.24.2/img/champion/Ahri.png"
-        // });
       }, this);
-
-
 
       // Delete all existing champions from database
       Games.find().forEach(function(game) {
@@ -111,26 +96,24 @@ Meteor.methods({
         Games.upsert(game._id, game);
       }, this);
 
-      Champions.find(
-        { 'id': { $in: recentChamps } }
-      ).forEach(function(champ) {
-        Games.insert(champ);
-      });
+    });
 
-      console.log(recentChamps);
+    // Get Champion data from Riot server
+    HTTP.get('http://ddragon.leagueoflegends.com/cdn/5.24.2/data/en_US/champion.json', function(error, riotResponse) {
+      var champs = [];
+      var entries = riotResponse.data.data;
+      _.each(entries, function(entry) {
+        
+        // Checks to see if champ ids match and sets the props
+        Games.update({ 'championId': Number(entry.key) }, {
+    			$set: {
+    				name: entry.name,
+    				imageUrl: "http://ddragon.leagueoflegends.com/cdn/5.24.2/img/champion/" + entry.image.full
+    			}
+    		},{ multi: true });
 
+      }, this);
 
-
-
-      // Insert new champion ids from array into database
-      // _.each(champsProps, function(champ) {
-      //   Games.update({ 'championId': champ.id }, {
-    	// 		$set: {
-    	// 			name: champ.name,
-    	// 			imageUrl: champ.imageUrl
-    	// 		}
-    	// 	});
-      // }, this);
     });
   }
 });
