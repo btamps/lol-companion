@@ -18,10 +18,10 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 iron:router
 fourseven:scss
-bootstrap
 accounts-password
 accounts-ui
 http
 
 
 momentjs:moment
+twbs:bootstrap
