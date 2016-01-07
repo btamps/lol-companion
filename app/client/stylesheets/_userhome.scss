@@ -1,0 +1,43 @@
+.users-summary {
+  background: $color-one;
+  overflow: hidden;
+  padding: 20px;
+  .profile-icon {
+    float: left;
+    margin: 0 20px;
+    border-radius: 200%;
+    width: 100px;
+    height: 100px;
+    border: 2px solid white;
+  }
+  .name {
+    color: white;
+    font-size: 2em;
+    line-height: 1;
+  }
+  .level {
+    color: $color-two;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}
+
+.user-games {
+  background: $color-four;
+  padding: 30px 15px;
+  .game-box {
+    background: $color-three;
+    width: 75%;
+    border-radius: 5px;
+    margin-left: 25%;
+    margin-bottom: 20px;
+  }
+  .champ-icon {
+    position: relative;
+    left: -90px;
+    border-radius: 200%;
+    border: 3px solid rgba(255, 255, 255, 0.7);;
+    width: 60px;
+    height: 60px;
+  }
+}

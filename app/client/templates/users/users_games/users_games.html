@@ -1,9 +1,8 @@
 <template name="UsersGames">
-  <div class="users-games">
-    <h1>Recent Games</h1>
+  <div class="user-games">
     {{#each games}}
-      <div class="game">
-        <img src="{{imageUrl}}" alt="{{name}}">
+      <div class="game-box">
+        <img src="{{imageUrl}}" class="champ-icon"/>
         <p>Champ Played: {{name}}</p>
         <p>Champ Id: {{championId}}</p>
         <p>Game Mode: {{mode}}</p>

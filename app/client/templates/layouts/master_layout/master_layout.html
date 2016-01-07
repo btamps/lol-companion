@@ -1,18 +1,11 @@
 <template name="MasterLayout">
   <div class="container">
-  	<div class="row">
-  	  	<div class="login">
-  		  	{{> loginButtons}}
-  	  	</div>
-  	</div>
-  	<div class="row">
-      <ul class="nav nav-pills">
-        <li role="presentation">{{#linkTo route='home'}}Home{{/linkTo}}</li>
-        <li role="presentation">{{#linkTo route='champions'}}Champions{{/linkTo}}</li>
-      </ul>
-  	</div>
 	  <div class="row">
 		  {{> yield}}
 	  </div>
   </div>
+  <footer>
+    {{#linkTo route='home' class="nav-btn"}}Home{{/linkTo}}
+    {{#linkTo route='champions' class="nav-btn"}}Champions{{/linkTo}}
+  </footer>
 </template>

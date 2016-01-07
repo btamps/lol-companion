@@ -1,6 +1,30 @@
 /*****************************************************************************/
 /* main: Style */
 /*****************************************************************************/
-.main {
-  
+@import 'partials/global';
+@import 'userhome';
+
+
+footer {
+  background: $color-five;
+  position: fixed;
+  bottom: 0;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  a {
+    flex: 1;
+    height: 60px;
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+    &:hover {
+      background: black;
+      color: white;
+      text-decoration: none;
+    }
+  }
 }
